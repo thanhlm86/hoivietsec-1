@@ -5,7 +5,8 @@
 </head>
 <body>
     <div class="body_page">
-        <?php include_once("Include/Header.php");?>
+        <div><?php include_once("Include/Header.php");?></div>
+        <div><?php include_once("Include/Bottom.php") ?></div>
     </div>
 </body>
 </html>

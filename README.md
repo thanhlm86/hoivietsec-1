@@ -6,6 +6,3 @@ xxxxxxxxxxx
 yyyyyyyyyyyy
 
 ssssssssssssssssssss
-
-
-vvvvvvvvvvvvv

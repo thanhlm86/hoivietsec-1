@@ -77,3 +77,49 @@
     </ul>
 
 </div>
+<div id="feature-news">
+    <span>Tin mới</span>
+<!--    <ul id="easyticker">-->
+<!--        <li style="display: block;">-->
+<!--            <a href="/news/view/2767/giua-long-chau-au-nghe-bai-hat-bdquo-viet-nam-que-huong-toi-ldquo-.html">Giữa lòng-->
+<!--                châu Âu nghe bài hát „Việt Nam quê hương tôi“</a>-->
+<!--        </li>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2766/tet-thieu-nhi-mung-1-6-va-thi-tai-nang-viet-nhi-tai-tttm-sapa.html">Tết thiếu nhi-->
+<!--                mùng 1.6 và thi Tài năng Việt Nhí tại TTTM Sapa</a>-->
+<!--        </li>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2765/dai-le-phat-dan-va-mung-chua-giac-vien-ra-doi-tai-teplice.html">Đại lễ phật đản và-->
+<!--                mừng chùa Giác Viên ra đời tại Teplice</a>-->
+<!--        </li>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2764/sokolov-canh-sat-sec-dau-bong-voi-cong-dong-nguoi-viet.html">Sokolov: Cảnh sát Séc-->
+<!--                đấu bóng với cộng đồng người Việt</a>-->
+<!--        </li>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2763/lu-lut-o-cong-hoa-sec-gay-thiet-hai-hang-trieu-usd.html">Lũ lụt ở Cộng hòa Séc gây-->
+<!--                thiệt hại hàng triệu USD</a>-->
+<!--        </li>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2762/giao-luu-ca-nhac-hat-ve-bien-dao-cua-cong-dong-nguoi-viet-tai-karlovy-vary.html">Giao-->
+<!--                lưu ca nhạc: Hát về biển đảo của Cộng đồng người Việt tại Karlovy Vary</a>-->
+<!--        </li>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2761/chi-so-niem-tin-vao-nen-kinh-te-cong-hoa-sec-tang-nhe.html">Chỉ số niềm tin vào nền-->
+<!--                kinh tế Cộng hòa Séc tăng nhẹ</a>-->
+<!--        </li>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2760/nguoi-viet-tai-sec-gop-quy-huong-ve-bien-dao-que-huong.html">Người Việt tại Séc góp-->
+<!--                quỹ Hướng về biển đảo quê hương</a>-->
+<!--        </li>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2759/cong-dong-nguoi-viet-o-sec-thanh-cong-tu-the-he-thu-hai-.html">Cộng đồng người Việt-->
+<!--                ở Séc - thành công từ thế hệ thứ hai </a>-->
+<!--        </li>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2758/ban-cha-p-ha-nh-tw-ho-i-hu-u-nghi-vie-t-nam-se-c-kho-a-iii-tie-n-ha-nh-ky-ho-p-thu-3.html">Ban-->
+<!--                Chấp hành TW Hội hữu nghị Việt Nam - Séc khóa III tiến hành kỳ họp thứ 3</a>-->
+<!--        </li>-->
+<!---->
+<!--    </ul>-->
+</div>

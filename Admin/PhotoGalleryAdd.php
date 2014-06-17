@@ -16,7 +16,7 @@
     <?php include_once("Header.php"); ?>
     <div id="wrapper">
         <?php include_once("Left.php"); ?>
-<!--        --><?php //include_once("NewsList.php"); ?>
+        <?php include_once("PhotoGalleryAddContent.php"); ?>
     </div>
 </div>
 </body>

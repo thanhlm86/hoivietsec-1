@@ -1,21 +1,18 @@
-<?php include_once("Class/GroupListClass.php"); ?>
+<?php include_once("Class/ClassTableNews.php"); ?>
 <div id="content">
 <ul class="breadcrumb">
-    <li><a href="Index.php" class="glyphicons home"><i></i>Trang quản trị</a></li>
-    <li class="divider"></li>
-    <li>Danh sách chi hội</li>
+    <li><a href="Index.php?lang=en" class="glyphicons home"><i></i>Danh sách tin tức</a></li>
 </ul>
-<div class="heading-buttons" style="background: #ECECEC; padding: 2px;">
-    <h3 class="glyphicons display"><i></i>Quản lý danh sách chi hội</h3>
-    <a href="javascript:void(0)" style="float: right; margin-right: 10px; margin-top: 15px;" onclick="goBack()"><img
-            src="Image/circle_back_arrow.png"
-            alt=""/>Trang trước</a>
+<div class="heading-buttons">
+    <h3 class="glyphicons display"><i></i>Quản lý tin tức</h3>
 
-    <div class="clearfix"></div>
-    <div class="separator"></div>
+    <div class="clearfix" style="clear: both;"></div>
 </div>
 <div class="innerLR">
 <div class="widget widget-gray widget-body-white">
+<div class="widget-head">
+    <h4 class="heading">Danh sách tin tức</h4>
+</div>
 <div style="padding: 10px 0;" class="widget-body">
 <div role="grid" class="dataTables_wrapper form-inline" id="DataTables_Table_0_wrapper">
 <div class="row-fluid">
@@ -50,7 +47,7 @@
                 </select>Dòng / trang</label></div>
     </div>
     <div class="span6">
-        <form action="GroupList.php" method="post">
+        <form action="Index.php" method="post">
             <div class="dataTables_filter" id="DataTables_Table_0_filter"><label>Tìm kiếm:
                     <input type="text" name="search"
                            aria-controls="DataTables_Table_0" <?php if (isset($_REQUEST['search'])) { ?> value="<?php echo $_REQUEST['search'] ?>" <?php } ?>>
@@ -61,8 +58,7 @@
     </div>
     <div class="span6">
         <div class="dataTables_filter" id="DataTables_Table_0_filter">
-            <label for=""><a href="GroupListAdd.php"><img src="Image/list-add.png" alt=""/>Thêm mới danh sách chi
-                    hội</a></label>
+            <label for=""><a href="News.php"><img src="Image/list-add.png" alt=""/>Thêm mới</a></label>
 
         </div>
     </div>
@@ -78,21 +74,25 @@
                 aria-label="Rendering eng.: activate to sort column ascending">No.
             </th>
             <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
-                rowspan="1" colspan="1" style="width: 350px;"
-                aria-label="Rendering eng.: activate to sort column ascending">Tên chi Hội
+                rowspan="1" colspan="1" style="width: 250px;"
+                aria-label="Rendering eng.: activate to sort column ascending">Title.
             </th>
-
             <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
-                rowspan="1" colspan="1" style="width: 100px;"
-                aria-label="Platform(s): activate to sort column ascending">Số thứ tự hiển thị
+                rowspan="1" colspan="1" style="width: 67px;"
+                aria-label="Browser: activate to sort column ascending">Date.
+            </th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
+                rowspan="1" colspan="1" style="width: 150px;"
+                aria-label="Platform(s): activate to sort column ascending">Catalog.
             </th>
             <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                 rowspan="1" colspan="1" style="width: 50px;"
-                aria-label="CSS grade: activate to sort column ascending">Trạng thái
+                aria-label="Platform(s): activate to sort column ascending">Status.
             </th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
-                rowspan="1" colspan="1" style="width: 50px;"
-                aria-label="CSS grade: activate to sort column ascending">Edit.
+            <th class="sorting_desc" role="columnheader" tabindex="0"
+                aria-controls="DataTables_Table_0"
+                rowspan="1" colspan="1" style="width: 50px;" aria-sort="descending"
+                aria-label="Eng. vers.: activate to sort column ascending">Edit.
             </th>
             <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                 rowspan="1" colspan="1" style="width: 50px;"
@@ -103,7 +103,7 @@
         <tbody role="alert" aria-live="polite" aria-relevant="all">
         <?php
         $stt = $_REQUEST['start'] + 1;
-        $use2 = new Class_GroupListClass();
+        $use2 = new Class_ClassTableNews();
 
         if (isset($_REQUEST['search']) && isset($_REQUEST['search']) != "") {
             $use2->search = $_REQUEST['search'];
@@ -134,32 +134,31 @@
         $start = (isset($_GET['start']) && (int)$_GET['start'] >= 0) ? $_GET['start'] : 0;
         $use2->display = $display;
         $use2->start = $start;
-        $selectArray = $use2->listGroup();
+        $selectArray = $use2->SelectTwoTable();
         if ($selectArray == null) {
             echo 'Khong tim thay';
         } else {
             foreach ($selectArray as $selectArrayItem) {
                 ?>
                 <tr class="gradeA odd">
-                    <td style="vertical-align: middle; "><?php echo $stt++; ?></td>
-                    <td class=""><?php echo $selectArrayItem->group_name; ?></td>
-                    <!--                        <td class=" ">-->
-                    <?php //echo $selectArrayItem->group_status; ?><!--</td>-->
-                    <td class=" "><?php echo $selectArrayItem->group_number; ?></td>
-                    <td class=" center " id="ajax<?php echo $selectArrayItem->group_id; ?>">
-                        <a onclick="state(<?php echo $selectArrayItem->group_id; ?>,<?php echo $selectArrayItem->group_id; ?>)">
-                            <?php if ($selectArrayItem->group_status == 1) {
+                    <td class=""><?php echo $stt++; ?></td>
+                    <td class=""><?php echo $selectArrayItem->ne_title; ?></td>
+                    <td class=" "><?php echo $selectArrayItem->ne_date; ?></td>
+                    <td class=" "><?php echo $selectArrayItem->ca_name; ?></td>
+                    <td class=" center " id="ajax<?php echo $selectArrayItem->ne_id; ?>">
+                        <a onclick="state(<?php echo $selectArrayItem->ne_id; ?>,<?php echo $selectArrayItem->ne_state; ?>)">
+                            <?php if ($selectArrayItem->ne_state == 1) {
                                 echo '<img src="Image/circle_green.png"/>';
                             } else {
                                 echo '<img src="Image/circle_red.png"/>';
                             } ?>
                         </a>
                     </td>
+                    <td class="center  sorting_1"><a
+                            href="NewsUpdate.php?id=<?php echo $selectArrayItem->ne_id; ?>">Edit</a>
+                    </td>
                     <td class="center "><a
-                            href="GroupListEdit.php?id=<?php echo $selectArrayItem->group_id; ?>"
-                            >Edit</a></td>
-                    <td class="center "><a
-                            href="GroupListDelAction.php?id=<?php echo $selectArrayItem->group_id; ?>"
+                            href="NewsDelAction.php?id=<?php echo $selectArrayItem->ne_id; ?>"
                             class="Del">Del</a></td>
                 </tr>
             <?php
@@ -184,8 +183,7 @@
                     // hien thi trang previous
                     if ($current != 1) {
                         ?>
-                        <li>
-                            <a href='GroupList.php?rows=<?php echo $display ?>&start=<?php echo $prev ?>'>Previous</a>
+                        <li><a href='Index.php?rows=<?php echo $display ?>&start=<?php echo $prev ?>'>Previous</a>
                         </li>
                     <?php
                     }
@@ -194,13 +192,13 @@
                         if ($current != $i) {
                             ?>
                             <li>
-                                <a href='GroupList.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                <a href='Index.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
                             </li>
                         <?php
                         } else {
                             ?>
                             <li class="active"><a
-                                    href='GroupList.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                    href='Index.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
                             </li>
                         <?php
                         }
@@ -209,9 +207,7 @@
                     // Hien thi trang next
                     if ($current != $page) {
                         ?>
-                        <li>
-                            <a href='GroupList.php?rows=<?php echo $display ?>&start=<?php echo $next ?>'>Next</a>
-                        </li>
+                        <li><a href='Index.php?rows=<?php echo $display ?>&start=<?php echo $next ?>'>Next</a></li>
                     <?php
                     }
                 }
@@ -243,7 +239,7 @@
         }
         $.ajax({
             type: "POST",
-            url: "GroupListAjaxState.php?id=" + id + "&ne_state=" + ne_state,
+            url: "NewsAjaxState.php?id=" + id + "&ne_state=" + ne_state,
             success: function (data) {
                 if (ne_state == 1) {
                     $('#ajax' + id).html(data);
@@ -256,6 +252,6 @@
 </script>
 <script>
     function Pagination() {
-        location.href = "GroupList.php?rows=" + $('#pagination').val();
+        location.href = "Index.php?rows=" + $('#pagination').val();
     }
 </script>

@@ -59,6 +59,12 @@
 
             </form>
         </div>
+        <div class="span6">
+            <div class="dataTables_filter" id="DataTables_Table_0_filter">
+                <label for=""><a href="PhotoCategoryAdd.php"><img src="Image/list-add.png" alt=""/>Thêm mới danh mục ảnh</a></label>
+
+            </div>
+        </div>
     </div>
     <div>
         <table

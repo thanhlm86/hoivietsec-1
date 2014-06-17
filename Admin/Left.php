@@ -6,7 +6,7 @@
         </div>
         <ul>
             <li class="heading"><span>Category</span></li>
-            <li class="glyphicons home active"><a href="Index.php?lang=en"><i></i><span>Dashboard</span></a></li>
+            <li class="glyphicons home active"><a href="Index.php"><i></i><span>Trang chủ</span></a></li>
             <li class="hasSubmenu">
                 <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#menu_forms"><i></i><span>Management</span></a>
                 <ul class="collapse" id="menu_forms">
@@ -26,7 +26,8 @@
                 <a class="glyphicons table" href="Schedule.php"><i></i><span>Điều lệ hội</span></a>
             </li>
             <li class="hasSubmenu">
-                <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#group_forms"><i></i><span>Danh sách chi hội</span></a>
+                <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines"
+                   href="#group_forms"><i></i><span>Danh sách chi hội</span></a>
                 <ul class="collapse" id="group_forms">
                     <li class=""><a href="GroupList.php"><span>Danh sách chi hội</span></a></li>
                     <li class=""><a href="GroupListAdd.php"><span>Thêm chi hội</span></a></li>
@@ -34,10 +35,20 @@
                 </ul>
             </li>
             <li class="hasSubmenu">
-                <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#photocat_forms"><i></i><span>Danh mục ảnh</span></a>
+                <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines"
+                   href="#photocat_forms"><i></i><span>Danh mục ảnh</span></a>
                 <ul class="collapse" id="photocat_forms">
                     <li class=""><a href="PhotoCategory.php"><span>Danh mục ảnh</span></a></li>
                     <li class=""><a href="PhotoCategoryAdd.php"><span>Thêm danh mục ảnh</span></a></li>
+
+                </ul>
+            </li>
+            <li class="hasSubmenu">
+                <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines"
+                   href="#photogalery_forms"><i></i><span>Thư viện ảnh</span></a>
+                <ul class="collapse" id="photogalery_forms">
+                    <li class=""><a href="PhotoGallery.php"><span>Thư viện ảnh</span></a></li>
+                    <li class=""><a href="PhotoGalleryAdd.php"><span>Thêm thư viện ảnh</span></a></li>
 
                 </ul>
             </li>

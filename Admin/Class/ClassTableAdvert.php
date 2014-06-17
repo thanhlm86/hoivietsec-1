@@ -8,6 +8,13 @@ class Class_ClassTableAdvert
     public $image;
     public $state;
     public $numberAdvert;
+<<<<<<< HEAD
+    public $search;
+    public $page;
+    public $start;
+    public $display;
+=======
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
     public function Create()
     {
         $sql = "insert into tbl_advert(ad_link,ad_date,ad_name,ad_image,ad_state) values ('".$this->link."','".$this->date."','".$this->name."','".$this->image."','".$this->state."')";
@@ -15,18 +22,90 @@ class Class_ClassTableAdvert
     }
     public function Update()
     {
+<<<<<<< HEAD
+        $sql = "update tbl_advert set ad_link = '".$this->link."', ad_date = '".$this->date."', ad_name = '".$this->name."',ad_state = '".$this->state."' where ad_id = ".$this->id;
+        $query = mysql_query($sql);
+    }
+    public function UpdateState()
+    {
+        $sql = "update tbl_advert set ad_state = '" . $this->state . "' where ad_id = " . $this->id;
+        $query = mysql_query($sql);
+    }
+
+=======
         $sql = "update tbl_advert set ad_link = '".$this->link."', ad_date = '".$this->date."', ad_name = '".$this->name."', ad_image = '".$this->image."',ad_state = '".$this->state."' where ad_id = ".$this->id;
         $query = mysql_query($sql);
     }
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
     public function Delete()
     {
         $sql = "delete from tbl_advert where ad_id = ".$this->id;
         $query = mysql_query($sql);
     }
+<<<<<<< HEAD
+    public function SelectId()
+    {
+        $sql = "select * from tbl_advert where ad_id =" . $this->id;
+        $query = mysql_query($sql);
+        $advert = array();
+        while ($row = mysql_fetch_object($query)) {
+            $advert[] = $row;
+        }
+        if (count($advert) > 0) {
+            return $advert;
+        } else {
+            return null;
+        }
+
+    }
+=======
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
     public function SelectNumberAdvert()
     {
         $sql = "select * from tbl_advert where ad_state = 1 order by ad_date DESC limit 0,".$this->numberAdvert;
         $query = mysql_query($sql);
+<<<<<<< HEAD
+        $advert = array();
+        while ($row = mysql_fetch_object($query)) {
+            $advert[]= $row;
+        }
+        if (count($advert) > 0) {
+            return $advert;
+        } else {
+            return null;
+        }
+    }
+    public function CountRows()
+    {
+        if ($this->search != "") {
+            $sql = "select count(ad_id) from tbl_news where ad_name LIKE '%" . $this->search . "%'";
+        } else {
+            $sql = "select count(ad_id) from tbl_advert";
+        }
+        $query = mysql_query($sql);
+        $row = mysql_fetch_array($query, MYSQL_NUM);
+        return $row[0];
+    }
+    public function SelectAdvert()
+    {
+        if ($this->search != "") {
+            $sql = "select * from tbl_advert where ad_name LIKE '%" . $this->search . "%'";
+        } else {
+            $sql = "select * from tbl_advert limit $this->start,$this->display";
+        }
+        $query = mysql_query($sql);
+        $select = array();
+        while ($row = mysql_fetch_object($query)) {
+            $select[] = $row;
+        }
+        if (count($select) > 0) {
+            return $select;
+        } else {
+            return null;
+        }
+    }
+
+=======
         while ($row = mysql_fetch_object($query)) {
             $advert[]= $row;
         }
@@ -36,4 +115,5 @@ class Class_ClassTableAdvert
             return null;
         }
     }
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
 }

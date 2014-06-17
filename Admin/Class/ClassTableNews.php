@@ -40,22 +40,36 @@ class Class_ClassTableNews
         $sql = "delete from tbl_news where ne_id = " . $this->id;
         $query = mysql_query($sql);
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
     public function SelectId()
     {
         $sql = "select * from tbl_news where ne_id =" . $this->id;
         $query = mysql_query($sql);
+<<<<<<< HEAD
+        $news = array();
+        while ($row = mysql_fetch_object($query)) {
+            $news[] = $row;
+        }
+        if (count($news) > 0) {
+=======
         while ($row = mysql_fetch_object($query)) {
             $news[] = $row;
         }
         if ($news != null) {
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
             return $news;
         } else {
             return null;
         }
 
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
     public function CountRows()
     {
         if ($this->search != "") {
@@ -63,16 +77,27 @@ class Class_ClassTableNews
         } else {
             $sql = "select count(ne_id) from tbl_news";
         }
+<<<<<<< HEAD
+        $query = mysql_query($sql);
+        $row = mysql_fetch_array($query, MYSQL_NUM);
+        return $row[0];
+    }
+=======
             $query = mysql_query($sql);
             $row = mysql_fetch_array($query, MYSQL_NUM);
             return $row[0];
         }
 
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
 
     public function SelectNumberNews()
     {
         $sql = "select * from tbl_news where ne_state = 1 and ne_focus = 1 order by ne_date DESC limit 0," . $this->numberNews;
         $query = mysql_query($sql);
+<<<<<<< HEAD
+        $news = array();
+=======
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
         while ($row = mysql_fetch_object($query)) {
             $news[] = $row;
         }
@@ -82,7 +107,10 @@ class Class_ClassTableNews
             return null;
         }
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
     public function SelectTwoTable()
     {
         if ($this->search != "") {
@@ -95,11 +123,18 @@ class Class_ClassTableNews
         while ($row = mysql_fetch_object($query)) {
             $select[] = $row;
         }
+<<<<<<< HEAD
+        if (count($select) > 0) {
+=======
         if (count($select)>0){
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
             return $select;
         } else {
             return null;
         }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 49a4e92abad439b3bc903e748bd30314f820fedf
     }
 }

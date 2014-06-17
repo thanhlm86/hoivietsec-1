@@ -26,7 +26,7 @@ class Class_PhotoCategoryClass
     }
 
     public function listPhotoCategory()
-    { // Hiển thị danh sach cac danh mucj anh
+    { // Hiển thị danh sach cac danh muc anh
         if ($this->search != "") {
             $sql = "select 	photo_cat_id, photo_cat_title, photo_cat_avatar, photo_cat_number, photo_cat_status from photo_category where photo_cat_title LIKE '%" . $this->search . "%' order by photo_cat_id desc";
         } else {
@@ -83,6 +83,21 @@ class Class_PhotoCategoryClass
         $query = mysql_query($sql);
         $row = mysql_fetch_array($query);
         return $row;
+    }
+
+    public function getPhotoCategoryTitle(){
+        $sql = "select photo_cat_id, photo_cat_title from photo_category where photo_cat_status = 1 order by photo_cat_number asc";
+        $query = mysql_query($sql);
+        $select = array();
+        while ($row = mysql_fetch_object($query)) {
+            $select[] = $row;
+        }
+        if (count($select) > 0) {
+            return $select;
+        } else {
+            return null;
+        }
+
     }
 
 }

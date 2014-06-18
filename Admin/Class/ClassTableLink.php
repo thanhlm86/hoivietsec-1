@@ -5,6 +5,7 @@ class Class_ClassTableLink
     public $name;
     public $link;
     public $state;
+    public $click;
     public $numberLink;
     public $search;
     public $page;
@@ -69,7 +70,7 @@ class Class_ClassTableLink
         $row = mysql_fetch_array($query, MYSQL_NUM);
         return $row[0];
     }
-    public function SelectCatalog()
+    public function SelectLink()
     {
         if ($this->search != "") {
             $sql = "select * from tbl_link where li_name LIKE '%" . $this->search . "%'";

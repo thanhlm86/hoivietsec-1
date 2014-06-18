@@ -1,10 +1,11 @@
 <div id="content">
 <ul class="breadcrumb">
+
 </ul>
 <div class="heading-buttons">
-    <h3 class="glyphicons coins"><i></i> Quản lý liên kết</h3>
+    <h3 class="glyphicons display"><i></i>Quản lý liên kết</h3>
     <div class="buttons pull-right">
-        <a class="btn btn-primary btn-icon glyphicons circle_plus" href="LinkAdd.php"><i></i> Add new</a>
+        <a class="btn btn-primary btn-icon glyphicons circle_plus" href="LinkAdd.php"><i></i>Add new</a>
     </div>
     <div class="clearfix" style="clear: both;"></div>
 </div>
@@ -68,16 +69,12 @@
                                 aria-label="Rendering eng.: activate to sort column ascending">No.
                             </th>
                             <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
-                                rowspan="1" colspan="1" style="width: 350px;"
+                                rowspan="1" colspan="1" style="width: 250px;"
                                 aria-label="Rendering eng.: activate to sort column ascending">Name.
                             </th>
                             <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
-                                rowspan="1" colspan="1" style="width:50px;"
-                                aria-label="Browser: activate to sort column ascending">Click.
-                            </th>
-                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
-                                rowspan="1" colspan="1" style="width:50px;"
-                                aria-label="Browser: activate to sort column ascending">State.
+                                rowspan="1" colspan="1" style="width: 50px;"
+                                aria-label="Platform(s): activate to sort column ascending">Status.
                             </th>
                             <th class="sorting_desc" role="columnheader" tabindex="0"
                                 aria-controls="DataTables_Table_0"
@@ -97,6 +94,7 @@
                         if (isset($_REQUEST['search']) && isset($_REQUEST['search']) != "") {
                             $use2->search = $_REQUEST['search'];
                         }
+
                         //                            BEGINING
                         if (isset($_REQUEST['rows'])) {
                             $display = $_REQUEST['rows'];
@@ -122,7 +120,7 @@
                         $start = (isset($_GET['start']) && (int)$_GET['start'] >= 0) ? $_GET['start'] : 0;
                         $use2->display = $display;
                         $use2->start = $start;
-                        $selectArray = $use2->SelectCatalog();
+                        $selectArray = $use2->SelectLink();
                         if(isset($_REQUEST['start'])){
                             $stt = $_REQUEST['start'] + 1;
                         } else{
@@ -135,9 +133,8 @@
                                 ?>
                                 <tr class="gradeA odd">
                                     <td class="center"><?php echo $stt++; ?></td>
-                                    <td class=""><?php echo $selectArrayItem->li_name; ?></td>
-                                    <td class=" "><?php echo $selectArrayItem->li_click; ?></td>
-                                    <td class=" center " id="ajax<?php echo $selectArrayItem->ne_id; ?>">
+                                    <td class=" "><?php echo $selectArrayItem->li_name; ?></td>
+                                    <td class=" center " id="ajax<?php echo $selectArrayItem->li_id; ?>">
                                         <a onclick="state(<?php echo $selectArrayItem->li_id; ?>,<?php echo $selectArrayItem->li_state; ?>)">
                                             <?php if ($selectArrayItem->li_state == 1) {
                                                 echo '<img src="Image/circle_green.png"/>';
@@ -147,10 +144,10 @@
                                         </a>
                                     </td>
                                     <td class="center  sorting_1"><a
-                                            href="CatalogUpdate.php?id=<?php echo $selectArrayItem->ca_id; ?>">Edit</a>
+                                            href="ClipUpdate.php?id=<?php echo $selectArrayItem->li_id; ?>">Edit</a>
                                     </td>
                                     <td class="center "><a
-                                            href="CatalogDelAction.php?id=<?php echo $selectArrayItem->ca_id; ?>"
+                                            href="ClipDelAction.php?id=<?php echo $selectArrayItem->li_id; ?>"
                                             class="Del">Del</a></td>
                                 </tr>
                             <?php
@@ -174,7 +171,7 @@
                                     // hien thi trang previous
                                     if ($current != 1) {
                                         ?>
-                                        <li><a href='Catalog.php?rows=<?php echo $display ?>&start=<?php echo $prev ?>'>Previous</a>
+                                        <li><a href='Link.php?rows=<?php echo $display ?>&start=<?php echo $prev ?>'>Previous</a>
                                         </li>
                                     <?php
                                     }
@@ -183,13 +180,13 @@
                                         if ($current != $i) {
                                             ?>
                                             <li>
-                                                <a href='Catalog.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                                <a href='Link.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
                                             </li>
                                         <?php
                                         } else {
                                             ?>
                                             <li class="active"><a
-                                                    href='Catalog.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                                    href='Link.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
                                             </li>
                                         <?php
                                         }
@@ -198,7 +195,7 @@
                                     // Hien thi trang next
                                     if ($current != $page) {
                                         ?>
-                                        <li><a href='Catalog.php?rows=<?php echo $display;?>&start=<?php echo $next;?>'>Next</a></li>
+                                        <li><a href='Link.php?rows=<?php echo $display;?>&start=<?php echo $next;?>'>Next</a></li>
                                     <?php
                                     }
                                 }
@@ -220,9 +217,28 @@
         reVal = confirm('Bạn có chắc chắn xóa bản ghi này không?');
         return reVal;
     });
+    function state(id, li_state) {
+        if (li_state == 1) {
+            li_state = 0;
+        }
+        else {
+            li_state = 1;
+        }
+        $.ajax({
+            type: "POST",
+            url: "ClipAjaxState.php?id=" + id + "&li_state=" + li_state,
+            success: function (data) {
+                if (li_state == 1) {
+                    $('#ajax' + id).html(data);
+                } else {
+                    $('#ajax' + id).html(data);
+                }
+            }
+        });
+    }
 </script>
 <script>
     function Pagination() {
-        location.href = "Catalog.php?rows=" + $('#pagination').val();
+        location.href = "Link.php?rows=" + $('#pagination').val();
     }
 </script>

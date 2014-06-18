@@ -8,14 +8,14 @@
             <li class="heading"><span>Category</span></li>
             <li class="glyphicons home active"><a href="Index.php"><i></i><span>Trang chủ</span></a></li>
             <li class="hasSubmenu">
-                <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#menu_forms"><i></i><span>Management</span></a>
+                <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#menu_forms"><i></i><span>Quản lý module</span></a>
                 <ul class="collapse" id="menu_forms">
-                    <li class=""><a href="News.php?lang=en"><span>Form News</span></a></li>
-                    <li class=""><a href="Advert.php?lang=en"><span>Form Advert</span></a></li>
-                    <li class=""><a href="Notice.php?lang=en"><span>Form Notice</span></a></li>
-                    <li class=""><a href="file_managers.html?lang=en"><span>File Managers</span></a></li>
-                    <li class=""><a href="#"><span>File Managers</span></a></li>
-                    <li class=""><a href="#"><span>File Managers</span></a></li>
+                    <li class=""><a href="News.php"><span>Module Tin tức</span></a></li>
+                    <li class=""><a href="Advert.php"><span>Module Quảng cáo</span></a></li>
+                    <li class=""><a href="Clip.php"><span>Module Clip</span></a></li>
+                    <li class=""><a href="Link.php"><span>Module Liên kết ngoài</span></a></li>
+                    <li class=""><a href="Notice.php"><span>Module Thông báo</span></a></li>
+                    <li class=""><a href="Catalog.php"><span>Module Danh mục</span></a></li>
                 </ul>
             </li>
             <li class="">

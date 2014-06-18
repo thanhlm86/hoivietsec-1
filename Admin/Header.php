@@ -1,13 +1,12 @@
 <?php include_once("Class/ClassConnectDatabase.php");
-include_once("Class/ClassTableCatalog.php");
-include_once("Class/ClassTableNews.php");
-include_once("Class/ClassTableAdvert.php");
-include_once("Class/ClassTableNotice.php");
-include_once("Class/ClassTableView.php");
-include_once("Class/ClassTableClip.php");
-include_once("Class/ClassTableLink.php");
+//include_once("Class/ClassTableCatalog.php");
+//include_once("Class/ClassTableNews.php");
+//include_once("Class/ClassTableAdvert.php");
+//include_once("Class/ClassTableNotice.php");
+//include_once("Class/ClassTableView.php");
+//include_once("Class/ClassTableClip.php");
+//include_once("Class/ClassTableLink.php");
 $use1 = new Class_ConnectDatabase();?>
-
 <div class="navbar main">
     <a href="Index.php?lang=en" class="appbrand"><span>Admin+ <span>lovely headline here</span></span></a>
     <button type="button" class="btn btn-navbar">

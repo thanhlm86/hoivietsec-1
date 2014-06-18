@@ -10,12 +10,9 @@ class Class_ScheduleClass
     {
         $sql = "select schedule_text, schedule_status from schedule";
         $query = mysql_query($sql);
-
         while($row = mysql_fetch_array($query)){
             return $row;
         }
-
-
     }
     public function editSchedule()
     {

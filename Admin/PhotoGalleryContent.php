@@ -1,12 +1,14 @@
-<?php include_once("Class/PhotoCategoryClass.php"); ?>
+<?php include_once("Class/PhotoGalleryClass.php"); ?>
 <div id="content">
 <ul class="breadcrumb">
     <li><a href="Index.php" class="glyphicons home"><i></i>Trang quản trị</a></li>
     <li class="divider"></li>
-    <li>Danh mục ảnh</li>
+    <li><a href="PhotoCategory.php">Danh mục ảnh</a></li>
+    <li class="divider"></li>
+    <li>Thư viện ảnh</li>
 </ul>
 <div class="heading-buttons" style="background: #ECECEC; padding: 2px;">
-    <h3 class="glyphicons display"><i></i>Quản lý danh mục ảnh</h3>
+    <h3 class="glyphicons display"><i></i>Quản lý thư viện ảnh</h3>
     <a href="javascript:void(0)" style="float: right; margin-right: 10px; margin-top: 15px;" onclick="goBack()"><img
             src="Image/circle_back_arrow.png"
             alt=""/>Trang trước</a>
@@ -50,7 +52,7 @@
                     </select>Dòng / trang</label></div>
         </div>
         <div class="span6">
-            <form action="PhotoCategory.php" method="post">
+            <form action="PhotoGallery.php" method="post">
                 <div class="dataTables_filter" id="DataTables_Table_0_filter"><label>Tìm kiếm:
                         <input type="text" name="search"
                                aria-controls="DataTables_Table_0" <?php if (isset($_REQUEST['search'])) { ?> value="<?php echo $_REQUEST['search'] ?>" <?php } ?>>
@@ -61,7 +63,7 @@
         </div>
         <div class="span6">
             <div class="dataTables_filter" id="DataTables_Table_0_filter">
-                <label for=""><a href="PhotoCategoryAdd.php"><img src="Image/list-add.png" alt=""/>Thêm mới danh mục ảnh</a></label>
+                <label for=""><a href="PhotoGalleryAdd.php"><img src="Image/list-add.png" alt=""/>Thêm mới vào thư viện ảnh</a></label>
 
             </div>
         </div>
@@ -78,11 +80,11 @@
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                     rowspan="1" colspan="1" style="width: 250px;"
-                    aria-label="Rendering eng.: activate to sort column ascending">Tiêu đề.
+                    aria-label="Rendering eng.: activate to sort column ascending">Tên danh mục ảnh
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                     rowspan="1" colspan="1" style="width: 200px;"
-                    aria-label="Browser: activate to sort column ascending">Ảnh đại diện.
+                    aria-label="Browser: activate to sort column ascending">Hình ảnh.
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                     rowspan="1" colspan="1" style="width: 50px;"
@@ -100,7 +102,7 @@
             <tbody role="alert" aria-live="polite" aria-relevant="all">
             <?php
             $stt = $_REQUEST['start'] + 1;
-            $use2 = new Class_PhotoCategoryClass();
+            $use2 = new Class_PhotoGalleryClass();
 
             if (isset($_REQUEST['search']) && isset($_REQUEST['search']) != "") {
                 $use2->search = $_REQUEST['search'];
@@ -131,7 +133,7 @@
             $start = (isset($_GET['start']) && (int)$_GET['start'] >= 0) ? $_GET['start'] : 0;
             $use2->display = $display;
             $use2->start = $start;
-            $selectArray = $use2->listPhotoCategory();
+            $selectArray = $use2->listPhotoGallery();
             if ($selectArray == null) {
                 echo 'Khong tim thay';
             } else {
@@ -140,10 +142,10 @@
                     <tr class="gradeA odd">
                         <td style="vertical-align: middle; "><?php echo $stt++; ?></td>
                         <td class=""><?php echo $selectArrayItem->photo_cat_title; ?></td>
-                        <td class=" "><img src="Image/PhotoCategory/<?php echo $selectArrayItem->photo_cat_avatar;?>" alt="" width="198" height="149"/></td>
-                        <td class=" center " id="ajax<?php echo $selectArrayItem->photo_cat_id	; ?>">
-                            <a onclick="state(<?php echo $selectArrayItem->photo_cat_id	; ?>,<?php echo $selectArrayItem->photo_cat_status; ?>)">
-                                <?php if ($selectArrayItem->photo_cat_status == 1) {
+                        <td class=" "><img src="Image/PhotoGallery/<?php echo $selectArrayItem->photo_img;?>" alt="" width="198" height="149"/></td>
+                        <td class=" center " id="ajax<?php echo $selectArrayItem->photo_id	; ?>">
+                            <a onclick="state(<?php echo $selectArrayItem->photo_id	; ?>,<?php echo $selectArrayItem->photo_status; ?>)">
+                                <?php if ($selectArrayItem->photo_status == 1) {
                                     echo '<img src="Image/circle_green.png"/>';
                                 } else {
                                     echo '<img src="Image/circle_red.png"/>';
@@ -151,9 +153,9 @@
                             </a>
                         </td>
                         <td class="center "><a
-                                href="PhotoCategoryEdit.php?id=<?php echo $selectArrayItem->photo_cat_id	; ?>"
+                                href="PhotoGalleryEdit.php?id=<?php echo $selectArrayItem->photo_id	; ?>"
                                 >Edit</a></td><td class="center "><a
-                                href="PhotoCategoryDelAction.php?id=<?php echo $selectArrayItem->photo_cat_id; ?>"
+                                href="PhotoGalleryDelAction.php?id=<?php echo $selectArrayItem->photo_id; ?>"
                                 class="Del">Del</a></td>
                     </tr>
                 <?php
@@ -179,7 +181,7 @@
                         if ($current != 1) {
                             ?>
                             <li>
-                                <a href='PhotoCategory.php?rows=<?php echo $display ?>&start=<?php echo $prev ?>'>Previous</a>
+                                <a href='PhotoGallery.php?rows=<?php echo $display ?>&start=<?php echo $prev ?>'>Previous</a>
                             </li>
                         <?php
                         }
@@ -188,13 +190,13 @@
                             if ($current != $i) {
                                 ?>
                                 <li>
-                                    <a href='PhotoCategory.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                    <a href='PhotoGallery.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
                                 </li>
                             <?php
                             } else {
                                 ?>
                                 <li class="active"><a
-                                        href='PhotoCategory.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                        href='PhotoGallery.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
                                 </li>
                             <?php
                             }
@@ -204,7 +206,7 @@
                         if ($current != $page) {
                             ?>
                             <li>
-                                <a href='PhotoCategory.php?rows=<?php echo $display ?>&start=<?php echo $next ?>'>Next</a>
+                                <a href='PhotoGallery.php?rows=<?php echo $display ?>&start=<?php echo $next ?>'>Next</a>
                             </li>
                         <?php
                         }
@@ -237,7 +239,7 @@
         }
         $.ajax({
             type: "POST",
-            url: "PhotoCategoryAjaxState.php?id=" + id + "&ne_state=" + ne_state,
+            url: "PhotoGalleryAjaxState.php?id=" + id + "&ne_state=" + ne_state,
             success: function (data) {
                 if (ne_state == 1) {
                     $('#ajax' + id).html(data);
@@ -250,6 +252,6 @@
 </script>
 <script>
     function Pagination() {
-        location.href = "PhotoCategory.php?rows=" + $('#pagination').val();
+        location.href = "PhotoGallery.php?rows=" + $('#pagination').val();
     }
 </script>

@@ -2,10 +2,10 @@
         <ul class="breadcrumb">
             <li><a href="Index.php" class="glyphicons home"><i></i>Trang quản trị</a></li>
             <li class="divider"></li>
-            <li>Sửa giới thiệu chung</li>
+            <li>Giới thiệu chung</li>
         </ul>
         <div class="heading-buttons" style="background: #ECECEC; padding: 2px;">
-            <h3 class="glyphicons display"><i></i>Sửa giới thiệu chung</h3>
+            <h3 class="glyphicons display"><i></i>Sửa thông tin giới thiệu chung</h3>
             <a href="javascript:void(0)" style="float: right; margin-right: 10px; margin-top: 15px;" onclick="goBack()"><img
                     src="Image/circle_back_arrow.png"
                     alt=""/>Trang trước</a>
@@ -43,7 +43,7 @@
                     </select>
                 </div>
                 <div>
-                    <input type="submit" value="Lưu Kết Quả"/>
+                    <input type="submit" value="Sửa giới thiệu chung"/>
                 </div>
             </div>
         </form>

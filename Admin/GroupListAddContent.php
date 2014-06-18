@@ -3,7 +3,7 @@
     <ul class="breadcrumb">
         <li><a href="Index.php" class="glyphicons home"><i></i>Trang quản trị</a></li>
         <li class="divider"></li>
-        <li><a href="GroupList.php">Quản lý chi hội</a></li>
+        <li><a href="GroupList.php">Danh sách chi hội</a></li>
         <li class="divider"></li>
         <li>Thêm mới chi hội</li>
     </ul>
@@ -44,7 +44,7 @@
                     </select>
                 </div>
                 <div>
-                    <input type="submit" value="Lưu kết quả "/>
+                    <input type="submit" value="Thêm mới chi hội"/>
                 </div>
             </div>
         </form>

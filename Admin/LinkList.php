@@ -144,10 +144,10 @@
                                         </a>
                                     </td>
                                     <td class="center  sorting_1"><a
-                                            href="ClipUpdate.php?id=<?php echo $selectArrayItem->li_id; ?>">Edit</a>
+                                            href="LinkUpdate.php?id=<?php echo $selectArrayItem->li_id; ?>">Edit</a>
                                     </td>
                                     <td class="center "><a
-                                            href="ClipDelAction.php?id=<?php echo $selectArrayItem->li_id; ?>"
+                                            href="LinkDelAction.php?id=<?php echo $selectArrayItem->li_id; ?>"
                                             class="Del">Del</a></td>
                                 </tr>
                             <?php
@@ -226,7 +226,7 @@
         }
         $.ajax({
             type: "POST",
-            url: "ClipAjaxState.php?id=" + id + "&li_state=" + li_state,
+            url: "LinkAjaxState.php?id=" + id + "&li_state=" + li_state,
             success: function (data) {
                 if (li_state == 1) {
                     $('#ajax' + id).html(data);

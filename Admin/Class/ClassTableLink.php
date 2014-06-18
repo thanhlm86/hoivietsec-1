@@ -18,7 +18,7 @@ class Class_ClassTableLink
     }
     public function Update()
     {
-        $sql = "update tbl_link set li_name = '".$this->name."', li_link = '".$this->link."', li_order = '".$this->order."' where li_id = ".$this->id;
+        $sql = "update tbl_link set li_name = '".$this->name."', li_link = '".$this->link."', li_state = '".$this->state."' where li_id = ".$this->id;
         $query = mysql_query($sql);
     }
     public function UpdateState()

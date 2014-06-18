@@ -3,7 +3,7 @@
 
     </ul>
     <div class="heading-buttons">
-        <h3 class="glyphicons show_thumbnails_with_lines"><i></i>Quản lý clip</h3>
+        <h3 class="glyphicons show_thumbnails"><i></i>Module Clip</h3>
 
         <div class="buttons pull-right">
             <a class="glyphicons" href="Clip.php"><< Quay lại</a>

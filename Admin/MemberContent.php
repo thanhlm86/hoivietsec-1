@@ -1,4 +1,4 @@
-<?php include_once("Class/FaqsClass.php"); ?>
+<?php include_once("Class/MemberClass.php"); ?>
 <div id="content">
 <ul class="breadcrumb">
     <li><a href="Index.php" class="glyphicons home"><i></i>Trang quản trị</a></li>
@@ -14,6 +14,13 @@
     <div class="clearfix"></div>
     <div class="separator"></div>
 </div>
+<?php $member = new Class_MemberClass();
+$info = $member->getAllMember();
+if ($info == null) {
+    echo '<center>Không có dữ liệu</center>';
+} else {
+
+?>
 <div class="innerLR">
 <div class="widget widget-gray widget-body-white">
 <div style="padding: 10px 0;" class="widget-body">
@@ -50,7 +57,7 @@
                     </select>Dòng / trang</label></div>
         </div>
         <div class="span6">
-            <form action="FaqsList.php" method="post">
+            <form action="Member.php" method="post">
                 <div class="dataTables_filter" id="DataTables_Table_0_filter"><label>Tìm kiếm:
                         <input type="text" name="search"
                                aria-controls="DataTables_Table_0" <?php if (isset($_REQUEST['search'])) { ?> value="<?php echo $_REQUEST['search'] ?>" <?php } ?>>
@@ -68,19 +75,19 @@
             <tr role="row">
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                     rowspan="1" colspan="1" style="width: 10px;"
-                    aria-label="Rendering eng.: activate to sort column ascending">No.
+                    aria-label="Rendering eng.: activate to sort column ascending">STT
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                     rowspan="1" colspan="1" style="width: 250px;"
-                    aria-label="Rendering eng.: activate to sort column ascending">Question.
+                    aria-label="Rendering eng.: activate to sort column ascending">Họ và tên
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                     rowspan="1" colspan="1" style="width: 67px;"
-                    aria-label="Browser: activate to sort column ascending">Date.
+                    aria-label="Browser: activate to sort column ascending">Chức vụ
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                     rowspan="1" colspan="1" style="width: 150px;"
-                    aria-label="Platform(s): activate to sort column ascending">Answer.
+                    aria-label="Platform(s): activate to sort column ascending">Địa chỉ
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                     rowspan="1" colspan="1" style="width: 50px;"
@@ -98,10 +105,10 @@
             <tbody role="alert" aria-live="polite" aria-relevant="all">
             <?php
             $stt = $_REQUEST['start'] + 1;
-            $use2 = new Class_FaqsClass();
+//            $use2 = new Class_MemberClass();
 
             if (isset($_REQUEST['search']) && isset($_REQUEST['search']) != "") {
-                $use2->search = $_REQUEST['search'];
+                $member->search = $_REQUEST['search'];
             }
 
             //                            BEGINING
@@ -117,7 +124,7 @@
 
 
             } else { // tu tinh page
-                $records = $use2->CountRows();
+                $records = $member->CountRows();
                 if ($records > $display) {
                     $page = ceil($records / $display);
 //                                $use2->page = $_REQUEST['page'];
@@ -127,22 +134,20 @@
 
             }
             $start = (isset($_GET['start']) && (int)$_GET['start'] >= 0) ? $_GET['start'] : 0;
-            $use2->display = $display;
-            $use2->start = $start;
-            $selectArray = $use2->listFaqs();
-            if ($selectArray == null) {
-                echo 'Khong tim thay';
-            } else {
-                foreach ($selectArray as $selectArrayItem) {
+            $member->display = $display;
+            $member->start = $start;
+//            $selectArray = $member->getAllMember();
+
+                foreach ($info as $selectArrayItem) {
                     ?>
                     <tr class="gradeA odd">
                         <td style="vertical-align: middle; "><?php echo $stt++; ?></td>
-                        <td class=""><?php echo $selectArrayItem->faq_content; ?></td>
-                        <td class=" "><?php echo $selectArrayItem->faq_date; ?></td>
-                        <td class=" "><?php echo $selectArrayItem->faq_answer; ?></td>
-                        <td class=" center " id="ajax<?php echo $selectArrayItem->faq_id; ?>">
-                            <a onclick="state(<?php echo $selectArrayItem->faq_id; ?>,<?php echo $selectArrayItem->faq_id; ?>)">
-                                <?php if ($selectArrayItem->faq_status == 1) {
+                        <td class=""><?php echo $selectArrayItem->mem_first_name.' '.$selectArrayItem->mem_last_name; ?></td>
+                        <td class=" "><?php echo $selectArrayItem->mem_competence; ?></td>
+                        <td class=" "><?php echo $selectArrayItem->mem_home_address; ?></td>
+                        <td class=" center " id="ajax<?php echo $selectArrayItem->mem_id; ?>">
+                            <a onclick="state(<?php echo $selectArrayItem->mem_id; ?>,<?php echo $selectArrayItem->mem_status; ?>)">
+                                <?php if ($selectArrayItem->mem_status == 1) {
                                     echo '<img src="Image/circle_green.png"/>';
                                 } else {
                                     echo '<img src="Image/circle_red.png"/>';
@@ -150,13 +155,13 @@
                             </a>
                         </td>
                         <td class="center "><a
-                                href="FaqsEdit.php?id=<?php echo $selectArrayItem->faq_id; ?>"
+                                href="MemberEdit.php?id=<?php echo $selectArrayItem->mem_id; ?>"
                                 >Edit</a></td><td class="center "><a
-                                href="FaqsDelAction.php?id=<?php echo $selectArrayItem->faq_id; ?>"
+                                href="MemberDelAction.php?id=<?php echo $selectArrayItem->mem_id; ?>"
                                 class="Del">Del</a></td>
                     </tr>
                 <?php
-                }
+
             }
             ?>
             </tr></tbody>
@@ -178,7 +183,7 @@
                         if ($current != 1) {
                             ?>
                             <li>
-                                <a href='FaqsList.php?rows=<?php echo $display ?>&start=<?php echo $prev ?>'>Previous</a>
+                                <a href='Member.php?rows=<?php echo $display ?>&start=<?php echo $prev ?>'>Previous</a>
                             </li>
                         <?php
                         }
@@ -187,13 +192,13 @@
                             if ($current != $i) {
                                 ?>
                                 <li>
-                                    <a href='FaqsList.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                    <a href='Member.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
                                 </li>
                             <?php
                             } else {
                                 ?>
                                 <li class="active"><a
-                                        href='FaqsList.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                        href='Member.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
                                 </li>
                             <?php
                             }
@@ -203,7 +208,7 @@
                         if ($current != $page) {
                             ?>
                             <li>
-                                <a href='FaqsList.php?rows=<?php echo $display ?>&start=<?php echo $next ?>'>Next</a>
+                                <a href='Member.php?rows=<?php echo $display ?>&start=<?php echo $next ?>'>Next</a>
                             </li>
                         <?php
                         }
@@ -220,6 +225,7 @@
 </div>
 </div>
 </div>
+<?php }?>
 </div>
 <script>
 
@@ -236,7 +242,7 @@
         }
         $.ajax({
             type: "POST",
-            url: "FaqsAjaxState.php?id=" + id + "&ne_state=" + ne_state,
+            url: "MemberAjaxState.php?id=" + id + "&ne_state=" + ne_state,
             success: function (data) {
                 if (ne_state == 1) {
                     $('#ajax' + id).html(data);
@@ -249,6 +255,6 @@
 </script>
 <script>
     function Pagination() {
-        location.href = "FaqsList.php?rows=" + $('#pagination').val();
+        location.href = "Member.php?rows=" + $('#pagination').val();
     }
 </script>

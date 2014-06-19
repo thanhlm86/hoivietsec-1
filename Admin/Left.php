@@ -52,8 +52,23 @@
 
                 </ul>
             </li>
-            <li class="">
-                <a class="glyphicons table" href="Member.php"><i></i><span>Hội viên</span></a>
+            <li class="hasSubmenu">
+                <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines"
+                   href="#job_forms"><i></i><span>Danh sách ngành nghề</span></a>
+                <ul class="collapse" id="job_forms">
+                    <li class=""><a href="Job.php"><span>Danh sách ngành nghề</span></a></li>
+                    <li class=""><a href="JobAdd.php"><span>Thêm ngành nghề</span></a></li>
+
+                </ul>
+            </li>
+            <li class="hasSubmenu">
+                <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines"
+                   href="#member_forms"><i></i><span>Thành viên</span></a>
+                <ul class="collapse" id="member_forms">
+                    <li class=""><a href="Member.php"><span>Danh sách thành viên</span></a></li>
+                    <li class=""><a href="Association.php"><span>Danh sách ban chấp hành</span></a></li>
+
+                </ul>
             </li>
             <li class="">
                 <a class="glyphicons table" href="FaqsList.php"><i></i><span>Câu hỏi - Câu trả lời</span></a>

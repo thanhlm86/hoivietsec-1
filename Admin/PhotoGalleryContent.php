@@ -67,6 +67,19 @@
 
             </div>
         </div>
+<!--        Xem theo danh mục ảnh-->
+        <div class="span6">
+            <div class="dataTables_filter" id="DataTables_Table_0_filter">
+                <label for="">Xem theo danh mục ảnh
+                    <select name="" id=""></select>
+                
+                
+                
+                </label>
+
+            </div>
+        </div>
+<!--        END Xem theo danh mục ảnh-->
     </div>
     <div>
         <table

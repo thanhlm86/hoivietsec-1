@@ -16,7 +16,6 @@ class Class_ClassTableNews
     public $page;
     public $start;
     public $display;
-
     public function Create()
     {
         $sql = "insert into tbl_news(ne_title,ne_date,ne_destion,ne_content,ne_image,catalogid,ne_author,ne_state,ne_focus) values ('" . $this->title . "','" . $this->date . "','" . $this->description . "','" . $this->content . "','" . $this->image . "','" . $this->catalogId . "','" . $this->author . "','" . $this->state . "','" . $this->focus . "')";
@@ -31,10 +30,13 @@ class Class_ClassTableNews
 
     public function Update()
     {
-        $sql = "update tbl_news set ne_title = '" . $this->title . "', ne_date = '" . $this->date . "', ne_destion = '" . $this->description . "', ne_content = '" . $this->content . "', catalogid = '" . $this->catalogId . "', ne_author = '" . $this->author . "', ne_state = '" . $this->state . "', ne_focus = '" . $this->focus . "' where ne_id = " . $this->id;
+        if($this->image != ""){
+            $sql = "update tbl_news set ne_title = '" . $this->title . "',ne_image = '".$this->image."', ne_date = '" . $this->date . "', ne_destion = '" . $this->description . "', ne_content = '" . $this->content . "', catalogid = '" . $this->catalogId . "', ne_author = '" . $this->author . "', ne_state = '" . $this->state . "', ne_focus = '" . $this->focus . "' where ne_id = " . $this->id;
+        }else{
+            $sql = "update tbl_news set ne_title = '" . $this->title . "', ne_date = '" . $this->date . "', ne_destion = '" . $this->description . "', ne_content = '" . $this->content . "', catalogid = '" . $this->catalogId . "', ne_author = '" . $this->author . "', ne_state = '" . $this->state . "', ne_focus = '" . $this->focus . "' where ne_id = " . $this->id;
+        }
         $query = mysql_query($sql);
     }
-
     public function Delete()
     {
         $sql = "delete from tbl_news where ne_id = " . $this->id;
@@ -84,7 +86,7 @@ class Class_ClassTableNews
     public function SelectTwoTable()
     {
         if ($this->search != "") {
-            $sql = "select ne_id,ne_title,ne_date,tbl_news.catalogid,ne_state,ca_name from tbl_news inner join tbl_catalog on tbl_news.catalogid = tbl_catalog.catalogid where ne_title LIKE '%" . $this->search . "%'";
+            $sql = "select ne_id,ne_title,ne_date,tbl_news.catalogid,ne_state,ca_name from tbl_news inner join tbl_catalog on tbl_news.catalogid = tbl_catalog.catalogid where ne_title LIKE '%" . $this->search . "%' limit $this->start,$this->display ";
         } else {
             $sql = "select ne_id,ne_title,ne_date,tbl_news.catalogid,ne_state,ca_name from tbl_news inner join tbl_catalog on tbl_news.catalogid = tbl_catalog.catalogid limit $this->start,$this->display";
         }
@@ -99,5 +101,16 @@ class Class_ClassTableNews
         } else {
             return null;
         }
+    }
+    public function CountEntries()
+    {
+        if ($this->search != "") {
+            $sql = "select * from tbl_news where ne_title LIKE '%" . $this->search . "%'";
+        } else {
+            $sql = "select * from tbl_news";
+        }
+        $query = mysql_query($sql);
+        $dem = mysql_num_rows($query);
+        return $dem;
     }
 }

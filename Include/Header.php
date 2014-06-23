@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="Css/Style.css">
+<link rel="stylesheet" href="Css/style.css">
 <div class="banner">
 </div>
 <div class="main_menu">
@@ -80,45 +80,35 @@
 <div id="feature-news">
     <span>Tin mới</span>
 <!--    <ul id="easyticker">-->
-<!--        <li style="display: block;">-->
-<!--            <a href="/news/view/2767/giua-long-chau-au-nghe-bai-hat-bdquo-viet-nam-que-huong-toi-ldquo-.html">Giữa lòng-->
-<!--                châu Âu nghe bài hát „Việt Nam quê hương tôi“</a>-->
+<!--        <li style="display: none;">-->
+<!--            <a href="/news/view/2782/thu-tuong-sobotka-cam-on-ong-marcel-winter.html">Thủ tướng Sobotka cảm ơn ông Marcel Winter</a>-->
 <!--        </li>-->
 <!--        <li style="display: none;">-->
-<!--            <a href="/news/view/2766/tet-thieu-nhi-mung-1-6-va-thi-tai-nang-viet-nhi-tai-tttm-sapa.html">Tết thiếu nhi-->
-<!--                mùng 1.6 và thi Tài năng Việt Nhí tại TTTM Sapa</a>-->
+<!--            <a href="/news/view/2781/dai-hoi-lan-thu-ii-va-ky-niem-5-nam-thanh-lap-hoi-dong-huong-vinh-phuc-tai-ch-sec.html">Đại hội lần thứ II và kỷ niệm 5 năm thành lập Hội Đồng Hương Vĩnh Phúc tại CH Séc</a>-->
 <!--        </li>-->
 <!--        <li style="display: none;">-->
-<!--            <a href="/news/view/2765/dai-le-phat-dan-va-mung-chua-giac-vien-ra-doi-tai-teplice.html">Đại lễ phật đản và-->
-<!--                mừng chùa Giác Viên ra đời tại Teplice</a>-->
+<!--            <a href="/news/view/2780/nguoi-viet-cong-giao-tai-sec-huong-ve-bien-dao-que-huong.html">Người Việt Công giáo tại Séc hướng về biển đảo quê hương</a>-->
 <!--        </li>-->
 <!--        <li style="display: none;">-->
-<!--            <a href="/news/view/2764/sokolov-canh-sat-sec-dau-bong-voi-cong-dong-nguoi-viet.html">Sokolov: Cảnh sát Séc-->
-<!--                đấu bóng với cộng đồng người Việt</a>-->
+<!--            <a href="/news/view/2779/kieu-bao-ch-sec-ung-ho-ngu-dan-hoang-sa-truong-sa-100-trieu-dong.html">Kiều bào CH Séc ủng hộ ngư dân Hoàng Sa, Trường Sa 100 triệu đồng</a>-->
 <!--        </li>-->
 <!--        <li style="display: none;">-->
-<!--            <a href="/news/view/2763/lu-lut-o-cong-hoa-sec-gay-thiet-hai-hang-trieu-usd.html">Lũ lụt ở Cộng hòa Séc gây-->
-<!--                thiệt hại hàng triệu USD</a>-->
+<!--            <a href="/news/view/2778/thong-diep-cua-nguoi-viet-tai-sec-gui-chinh-quyen-trung-quoc.html">Thông điệp của người Việt tại Séc gửi chính quyền Trung Quốc</a>-->
 <!--        </li>-->
 <!--        <li style="display: none;">-->
-<!--            <a href="/news/view/2762/giao-luu-ca-nhac-hat-ve-bien-dao-cua-cong-dong-nguoi-viet-tai-karlovy-vary.html">Giao-->
-<!--                lưu ca nhạc: Hát về biển đảo của Cộng đồng người Việt tại Karlovy Vary</a>-->
+<!--            <a href="/news/view/2777/nguoi-viet-tai-sec-ung-ho-50-000-usd-vi-bien-dao-que-huong.html">Người Việt tại Séc ủng hộ 50.000 USD vì biển đảo quê hương</a>-->
 <!--        </li>-->
 <!--        <li style="display: none;">-->
-<!--            <a href="/news/view/2761/chi-so-niem-tin-vao-nen-kinh-te-cong-hoa-sec-tang-nhe.html">Chỉ số niềm tin vào nền-->
-<!--                kinh tế Cộng hòa Séc tăng nhẹ</a>-->
+<!--            <a href="/news/view/2776/doan-dai-bieu-bo-quoc-phong-viet-nam-do-thuong-tuong-nguyen-chi-vinh-dan-dau-tham-ch-sec.html">Đoàn đại biểu Bộ quốc phòng Việt Nam do Thượng tướng Nguyễn Chí Vịnh dẫn đầu thăm CH Séc</a>-->
 <!--        </li>-->
 <!--        <li style="display: none;">-->
-<!--            <a href="/news/view/2760/nguoi-viet-tai-sec-gop-quy-huong-ve-bien-dao-que-huong.html">Người Việt tại Séc góp-->
-<!--                quỹ Hướng về biển đảo quê hương</a>-->
+<!--            <a href="/news/view/2775/thuong-tuong-nguyen-chi-vinh-tham-ch-sec.html">Thượng tướng Nguyễn Chí Vịnh thăm CH Séc</a>-->
+<!--        </li>-->
+<!--        <li style="display: list-item;">-->
+<!--            <a href="/news/view/2774/dai-hoi-lan-hai-hoi-van-hoc-va-nghe-thuat-viet-nam-tai-sec-.html">Đại hội lần hai Hội Văn học và nghệ thuật Việt Nam tại Séc </a>-->
 <!--        </li>-->
 <!--        <li style="display: none;">-->
-<!--            <a href="/news/view/2759/cong-dong-nguoi-viet-o-sec-thanh-cong-tu-the-he-thu-hai-.html">Cộng đồng người Việt-->
-<!--                ở Séc - thành công từ thế hệ thứ hai </a>-->
-<!--        </li>-->
-<!--        <li style="display: none;">-->
-<!--            <a href="/news/view/2758/ban-cha-p-ha-nh-tw-ho-i-hu-u-nghi-vie-t-nam-se-c-kho-a-iii-tie-n-ha-nh-ky-ho-p-thu-3.html">Ban-->
-<!--                Chấp hành TW Hội hữu nghị Việt Nam - Séc khóa III tiến hành kỳ họp thứ 3</a>-->
+<!--            <a href="/news/view/2773/tung-bung-le-hoi-bong-da-danh-cho-nguoi-ham-mo-tai-sec.html">Tưng bừng lễ hội bóng đá dành cho người hâm mộ tại Séc</a>-->
 <!--        </li>-->
 <!---->
 <!--    </ul>-->

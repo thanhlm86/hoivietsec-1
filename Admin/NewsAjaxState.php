@@ -1,6 +1,6 @@
 <?php
-include_once("Class/ClassConnectDatabase.php");
-include_once("Class/ClassTableNews.php");
+include_once("../Class/ClassConnectDatabase.php");
+include_once("../Class/ClassTableNews.php");
 
 $use1 = new Class_ConnectDatabase();
 $use2 = new Class_ClassTableNews();

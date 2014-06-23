@@ -1,6 +1,6 @@
 <?php
-include_once("Class/ClassConnectDatabase.php");
-include_once("Class/ClassTableAdvert.php");
+include_once("../Class/ClassConnectDatabase.php");
+include_once("../Class/ClassTableAdvert.php");
 
 $use1 = new Class_ConnectDatabase();
 $use2 = new Class_ClassTableAdvert();
@@ -13,6 +13,6 @@ $use2->name = $_REQUEST['name'];
 $use2->date = $_REQUEST['datepicker'];
 $use2->link = $_REQUEST['name'];
 $use2->image = $tenFile;
-$use2->state = $_REQUEST['name'];
+$use2->state = $_REQUEST['state'];
 $use2->Create();
-header("Location: Advert.php");
+//header("Location: Advert.php");

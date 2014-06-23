@@ -6,7 +6,7 @@
         </div>
         <ul>
             <li class="heading"><span>Category</span></li>
-            <li class="glyphicons home active"><a href="Index.php"><i></i><span>Trang chủ</span></a></li>
+            <li class="glyphicons home active"><a href="index.php"><i></i><span>Trang chủ</span></a></li>
             <li class="hasSubmenu">
                 <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#menu_forms"><i></i><span>Quản lý module</span></a>
                 <ul class="collapse" id="menu_forms">

@@ -49,7 +49,7 @@
                 </select>Dòng / trang</label></div>
     </div>
     <div class="span6">
-        <form action="News.php" method="post">
+        <form action="News.php" method="get">
             <div class="dataTables_filter" id="DataTables_Table_0_filter"><label>Tìm kiếm:
                     <input type="text" name="search"
                            aria-controls="DataTables_Table_0" <?php if (isset($_REQUEST['search'])) { ?> value="<?php echo $_REQUEST['search'] ?>" <?php } ?>>
@@ -131,9 +131,11 @@
         $use2->start = $start;
         $selectArray = $use2->SelectTwoTable();
         if (isset($_REQUEST['start'])) {
-            $stt = $_REQUEST['start'] + 1;
+             $stt = $_REQUEST['start'] + 1;
+            $first = $_REQUEST['start'] + 1;
         } else {
-            $stt = 1;
+             $stt = 1;
+            $first = 1;
         }
         if ($selectArray == null) {
             echo "Không tìm thấy kết quả nào!";
@@ -167,7 +169,7 @@
         ?>
         </tr></tbody>
     </table>
-
+        <div>Showing <?php echo $first; ?> to <?php echo $stt - 1;?> of <?php echo $use2->CountEntries(); ?> entries</div>
     <!--                        CHEN TRANG-->
     <div class="separator top form-inline small">
         <div style="margin: 0;" class="pagination pagination-small pull-right">
@@ -191,13 +193,13 @@
                         if ($current != $i) {
                             ?>
                             <li>
-                                <a href='News.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                <a href='News.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>&search=<?php echo $_REQUEST['search']?>'><?php echo $i ?></a>
                             </li>
                         <?php
                         } else {
                             ?>
                             <li class="active"><a
-                                    href='News.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>'><?php echo $i ?></a>
+                                    href='News.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>&search=<?php echo $_REQUEST['search']?>'><?php echo $i ?></a>
                             </li>
                         <?php
                         }

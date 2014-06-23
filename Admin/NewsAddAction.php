@@ -1,6 +1,6 @@
 <?php
-include_once("Class/ClassConnectDatabase.php");
-include_once("Class/ClassTableNews.php");
+include_once("../Class/ClassConnectDatabase.php");
+include_once("../Class/ClassTableNews.php");
 
 $use1 = new Class_ConnectDatabase();
 $use2 = new Class_ClassTableNews();
@@ -15,8 +15,20 @@ $use2->date = $_REQUEST['datepicker'];
 $use2->description = $_REQUEST['description'];
 $use2->content = $_REQUEST['content'];
 $use2->catalogId = $_REQUEST['catalogID'];
-$use2->state = $_REQUEST['state'];
-$use2->focus = $_REQUEST['focus'];
+$array = $_REQUEST['state'];
+$dem = count($array);
+if($dem == 1){
+    $use2->state = 0;
+}else{
+    $use2->state =1;
+}
+$array2 = $_REQUEST['focus'];
+$dem2 = count($array2);
+if($dem2 == 1){
+    $use2->focus = 0;
+}else{
+    $use2->focus =1;
+}
 $use2->image = $tenFile;
 $use2->Create();
 header("Location: News.php");

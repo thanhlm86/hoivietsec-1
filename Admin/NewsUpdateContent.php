@@ -49,7 +49,11 @@
                         </textarea>
                     </div>
                 </div>
-                <div><label>Upload Image: </label><input type="file" name="image" id="image"/></div>
+                <div><label>Upload Image: </label><input type="file" name="image" id="image"/>
+                <img width="150" height="50" src="Image/<?php echo $arrayItem->ne_image; ?>"><br/>
+                <label>Xóa ảnh: </label><input style="margin-top: -3px" type="checkbox" name="delFile" value="1">
+                <input type="hidden" name="nameImage" value="<?php echo $arrayItem->ne_image;?>">
+                </div>
                 <div class="form-group">
                     <label>Catalog: </label>
                     <select class="form-control" name="catalogID">
@@ -66,19 +70,11 @@
                 </div>
                 <div class="form-group width">
                     <label>Status: </label>
-                    <select class="form-control" name="state">
-                        <option value="0">--Status--</option>
-                        <option value="0" <?php if($arrayItem->ne_state==0){?>selected="selected" <?php }?>>Không hiệu lực</option>
-                        <option value="1" <?php if($arrayItem->ne_state==1){?>selected="selected" <?php }?>>Hiệu lực</option>
-                    </select>
-                </div>
-                <div class="form-group width">
-                    <label>Focus: </label>
-                    <select class="form-control" name="focus">
-                        <option value="0">--Focus--</option>
-                        <option value="0" <?php if($arrayItem->ne_focus==0){?>selected="selected" <?php }?>>Không phải tin tiêu điểm</option>
-                        <option value="1" <?php if($arrayItem->ne_focus==1){?>selected="selected" <?php }?> >Tiêu điểm</option>
-                    </select>
+                    <input style="margin-top: -3px" type="checkbox" name="state[]" <?php if($arrayItem->ne_state==1){?>checked="checked"<?php }?> value="1"/>
+                    <input style="margin-top: -3px" type="hidden" name="state[]" value="0" />
+                    <label style="margin-left: 20px">Focus: </label>
+                    <input style="margin-top: -3px" type="checkbox" name="focus[]" <?php if($arrayItem->ne_focus==1){?>checked="checked"<?php }?> value="1"/>
+                    <input style="margin-top: -3px" type="hidden" name="focus[]"  value="0"/>
                 </div>
                 <div>
                     <button type="submit">Save</button>

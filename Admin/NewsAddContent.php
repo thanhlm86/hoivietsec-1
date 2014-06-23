@@ -25,7 +25,7 @@
                    <label>Author: </label>
                    <input type="text" placeholder="Author..." name="author" id="author" class="form-control">
                </div>
-               <div class="form-group width"><label>Date: </label><input class="form-control" type="text" name="datepicker"
+               <div class="form-group width"><label>Date Posted: </label><input class="form-control" type="text" name="datepicker"
                                                                          id="datepicker" placeholder="yy/mm/dd"/></div>
                <div><label>Description: </label>
 
@@ -59,19 +59,11 @@
                </div>
                <div class="form-group width">
                    <label>Status: </label>
-                   <select class="form-control" name="state">
-                       <option value="0">--Status--</option>
-                       <option value="0">Không hiệu lực</option>
-                       <option value="1">Hiệu lực</option>
-                   </select>
-               </div>
-               <div class="form-group width">
-                   <label>Focus: </label>
-                   <select class="form-control" name="focus">
-                       <option value="0">--Focus--</option>
-                       <option value="0">Không phải tin tiêu điểm</option>
-                       <option value="1">Tiêu điểm</option>
-                   </select>
+                   <input style="margin-top: -3px" type="checkbox" name="state[]"  value="1"/>
+                   <input style="margin-top: -3px" type="hidden" name="state[]" value="0" />
+                   <label style="margin-left: 20px">Focus: </label>
+                   <input style="margin-top: -3px" type="checkbox" name="focus[]" value="1"/>
+                   <input style="margin-top: -3px" type="hidden" name="focus[]"  value="0"/>
                </div>
                <div>
                    <button type="submit">Save</button>

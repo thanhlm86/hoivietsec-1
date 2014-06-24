@@ -68,10 +68,28 @@ class Class_ClassTableNews
         $row = mysql_fetch_array($query, MYSQL_NUM);
         return $row[0];
     }
+    public function SelectNewCatalog()
+    {
+        if($this->numberNews == 1){
+            $sql = "select * from tbl_news where ne_state = 1 and ne_focus = 1 and catalogid = '".$this->catalogId."' order by ne_date DESC limit 0,".$this->numberNews;
+        }else{
+            $sql = "select * from tbl_news where ne_state = 1 and ne_focus = 0 and catalogid = '".$this->catalogId."' order by ne_date DESC limit 0,".$this->numberNews;
+        }
+        $query = mysql_query($sql);
+        $news = array();
+        while ($row = mysql_fetch_object($query)) {
+            $news[] = $row;
+        }
+        if (count($news) > 0) {
+            return $news;
+        } else {
+            return null;
+        }
 
+    }
     public function SelectNumberNews()
     {
-        $sql = "select * from tbl_news where ne_state = 1 and ne_focus = 1 order by ne_date DESC limit 0," . $this->numberNews;
+        $sql = "select * from tbl_news where ne_state = 1 and ne_focus = 1 limit 0," . $this->numberNews;
         $query = mysql_query($sql);
         $news = array();
         while ($row = mysql_fetch_object($query)) {
@@ -86,9 +104,9 @@ class Class_ClassTableNews
     public function SelectTwoTable()
     {
         if ($this->search != "") {
-            $sql = "select ne_id,ne_title,ne_date,tbl_news.catalogid,ne_state,ca_name from tbl_news inner join tbl_catalog on tbl_news.catalogid = tbl_catalog.catalogid where ne_title LIKE '%" . $this->search . "%' limit $this->start,$this->display ";
+            $sql = "select ne_id,ne_title,ne_date,catalogid,ne_state,ca_name,ca_id from tbl_news inner join tbl_catalog on tbl_news.catalogid = tbl_catalog.ca_id where ne_title LIKE '%" . $this->search . "%' limit $this->start,$this->display ";
         } else {
-            $sql = "select ne_id,ne_title,ne_date,tbl_news.catalogid,ne_state,ca_name from tbl_news inner join tbl_catalog on tbl_news.catalogid = tbl_catalog.catalogid limit $this->start,$this->display";
+            $sql = "select ne_id,ne_title,ne_date,catalogid,ne_state,ca_name,ca_id from tbl_news inner join tbl_catalog on tbl_news.catalogid = tbl_catalog.ca_id limit $this->start,$this->display";
         }
         $query = mysql_query($sql);
         $select = array();

@@ -23,7 +23,7 @@ class Class_ClassTableCatalog
         $sql = "delete from tbl_catalog where ca_id = ".$this->id;
         $query = mysql_query($sql);
     }
-    public function SelectNumberCatalog()
+    public function SelectCatalogName()
     {
         $sql = "select * from tbl_catalog";
         $query = mysql_query($sql);

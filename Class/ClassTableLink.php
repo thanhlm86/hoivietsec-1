@@ -6,7 +6,6 @@ class Class_ClassTableLink
     public $link;
     public $state;
     public $click;
-    public $numberLink;
     public $search;
     public $page;
     public $start;
@@ -33,7 +32,7 @@ class Class_ClassTableLink
     }
     public function SelectNumberLink()
     {
-        $sql = "select * from tbl_link where order by li_order DESC limit 0,".$this->numberLink;
+        $sql = "select * from tbl_link where li_state = 1";
         $query = mysql_query($sql);
         $link = array();
         while ($row = mysql_fetch_object($query)) {

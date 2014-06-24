@@ -1,3 +1,12 @@
+<meta content="text/html" charset="utf-8">
+<?php include_once("Class/ClassConnectDatabase.php");
+include_once("Class/ClassTableNews.php");
+include_once("Class/ClassTableCatalog.php");
+include_once("Class/ClassTableNotice.php");
+include_once("Class/ClassTableAdvert.php");
+include_once("Class/ClassTableLink.php");
+include_once("Class/ClassTableView.php");
+$use1 = new Class_ConnectDatabase();?>
 <link rel="stylesheet" href="Css/style.css">
 <div class="banner">
 </div>
@@ -24,31 +33,14 @@
         </li>
         <li><a href="#">Tin tức</a>
             <ul id="subnav_news" class="subnav">
-
+                <?php $use2 = new Class_ClassTableCatalog();
+                    $array = $use2->SelectCatalogName();
+                    foreach($array as $arrayItem){
+                ?>
                 <li>
-                    <a href="#">Tin tức, sự kiện</a>
+                    <a href="NewsCatalogPage.php?ca_id=<?php echo $arrayItem->ca_id;?>"><?php echo $arrayItem->ca_name;?></a>
                 </li>
-                <li>
-                    <a href="#">Hoạt động của hội</a>
-                </li>
-                <li>
-                    <a href="#">Quan hệ Việt - Séc</a>
-                </li>
-                <li>
-                    <a href="#">Người Việt tại Séc</a>
-                </li>
-                <li>
-                    <a href="#">Cộng hòa Séc</a>
-                </li>
-                <li>
-                    <a href="#">Việt Nam - Đất nước - Con người</a>
-                </li>
-                <li>
-                    <a href="#">Cầu nối doanh nghiệp Việt-Séc</a>
-                </li>
-                <li>
-                    <a href="#">Trang văn học-nghệ thuật</a>
-                </li>
+                <?php } ?>
             </ul>
         </li>
         <li><a href="#">Thư viện ảnh</a></li>

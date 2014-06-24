@@ -144,7 +144,7 @@
                 ?>
                 <tr class="gradeA odd">
                     <td class="center"><?php echo $stt++; ?></td>
-                    <td class=""><?php echo $selectArrayItem->ne_title; ?></td>
+                    <td class=""><a href="../NewsDetailed.php?id=<?php echo $selectArrayItem->ne_id;?>"><?php echo $selectArrayItem->ne_title; ?></a></td>
                     <td class=" "><?php echo $selectArrayItem->ne_date; ?></td>
                     <td class=" "><?php echo $selectArrayItem->ca_name; ?></td>
                     <td class=" center " id="ajax<?php echo $selectArrayItem->ne_id; ?>">
@@ -193,13 +193,13 @@
                         if ($current != $i) {
                             ?>
                             <li>
-                                <a href='News.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>&search=<?php echo $_REQUEST['search']?>'><?php echo $i ?></a>
+                                <a href='News.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?><?php if(isset($_REQUEST['search'])){echo "&search=".$_REQUEST['search'];}?>'><?php echo $i ?></a>
                             </li>
                         <?php
                         } else {
                             ?>
                             <li class="active"><a
-                                    href='News.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>&search=<?php echo $_REQUEST['search']?>'><?php echo $i ?></a>
+                                    href='News.php?rows=<?php echo $display ?>&start=<?php echo($display * ($i - 1)) ?>&search=<?php echo $_REQUEST['search']?><?php if(isset($_REQUEST['search'])){echo "&search=".$_REQUEST['search'];}?>'><?php echo $i ?></a>
                             </li>
                         <?php
                         }

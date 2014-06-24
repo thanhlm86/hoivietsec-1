@@ -14,12 +14,12 @@ class Class_ClassTableAdvert
     public $display;
     public function Create()
     {
-        $sql = "insert into tbl_advert(ad_link,ad_date,ad_name,ad_image,ad_state) values ('".$this->link."','".$this->date."','".$this->name."','".$this->image."','".$this->state."')";
+        $sql = "insert into tbl_advert(ad_link,ad_name,ad_image,ad_state) values ('".$this->link."','".$this->name."','".$this->image."','".$this->state."')";
         $query = mysql_query($sql);
     }
     public function Update()
     {
-        $sql = "update tbl_advert set ad_link = '".$this->link."', ad_date = '".$this->date."', ad_name = '".$this->name."',ad_state = '".$this->state."' where ad_id = ".$this->id;
+        $sql = "update tbl_advert set ad_link = '".$this->link."', ad_name = '".$this->name."',ad_state = '".$this->state."' where ad_id = ".$this->id;
         $query = mysql_query($sql);
     }
     public function UpdateState()
@@ -49,10 +49,10 @@ class Class_ClassTableAdvert
     }
     public function SelectNumberAdvert()
     {
-        $sql = "select * from tbl_advert where ad_state = 1 order by ad_date DESC limit 0,".$this->numberAdvert;
+        $sql = "select * from tbl_advert where ad_state = 1 limit 0,".$this->numberAdvert;
         $query = mysql_query($sql);
         $advert = array();
-        while ($row = mysql_fetch_object($query)) {
+        while ($row = mysql_fetch_object($query)){
             $advert[]= $row;
         }
         if (count($advert) > 0) {

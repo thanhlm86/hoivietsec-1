@@ -49,11 +49,11 @@
                        <option value="0">--Catalog--</option>
                        <?php
                        $select = new Class_ClassTableCatalog();
-                       $catalogArray = $select->SelectNumberCatalog();
+                       $catalogArray = $select->SelectCatalogName();
                        foreach ($catalogArray as $catalogItem) {
                            ?>
                            <option
-                               value="<?php echo $catalogItem->catalogid; ?>"><?php echo $catalogItem->ca_name; ?></option>
+                               value="<?php echo $catalogItem->ca_id; ?>"><?php echo $catalogItem->ca_name; ?></option>
                        <?php } ?>
                    </select>
                </div>

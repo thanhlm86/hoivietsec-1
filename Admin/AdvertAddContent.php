@@ -27,8 +27,6 @@
                 <label>Link: </label>
                 <input type="text" placeholder="Link..." id="link" name="link" class="form-control">
             </div>
-            <div class="form-group width"><label>Date: </label><input class="form-control" type="text" name="datepicker"
-                                                                      id="datepicker" placeholder="yy/mm/dd"/></div>
             <div><label>Upload Image: </label><input type="file" name="image" id="image"/></div>
             <div class="form-group width">
                 <label>Status: </label>

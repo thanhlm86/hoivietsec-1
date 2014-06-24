@@ -10,7 +10,7 @@ class Class_ClassTableView
     }
     public function Update()
     {
-        $sql = "update tbl_view set vi_views = '".$this->views."' where vi_id = ".$this->id;
+        $sql = "update tbl_view set vi_views = '".$this->views."'";
         $query = mysql_query($sql);
     }
     public function Delete()
@@ -22,12 +22,13 @@ class Class_ClassTableView
     {
         $sql = "select * from tbl_view";
         $query = mysql_query($sql);
+        $view = array();
         while ($row = mysql_fetch_object($query)) {
-          $row;
+            $view[] = $row;
         }
-        if($row != null){
-            return $row;
-        } else{
+        if (count($view) > 0) {
+            return $view;
+        } else {
             return null;
         }
     }

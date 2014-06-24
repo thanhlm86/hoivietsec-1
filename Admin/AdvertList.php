@@ -72,10 +72,6 @@
                 rowspan="1" colspan="1" style="width: 250px;"
                 aria-label="Rendering eng.: activate to sort column ascending">Name
             </th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
-                rowspan="1" colspan="1" style="width: 67px;"
-                aria-label="Browser: activate to sort column ascending">Date.
-            </th>
             <th class="sorting_desc" role="columnheader" tabindex="0"
                 aria-controls="DataTables_Table_0"
                 rowspan="1" colspan="1" style="width: 50px;" aria-sort="descending"
@@ -143,7 +139,7 @@
                 <tr class="gradeA odd">
                     <td class="center"><?php echo $stt++; ?></td>
                     <td class=""><?php echo $selectArrayItem->ad_name; ?></td>
-                    <td class=" "><?php echo $selectArrayItem->ad_date; ?></td>
+
                     <td class=" "><?php echo $selectArrayItem->ad_click; ?></td>
                     <td class=" center " id="ajax<?php echo $selectArrayItem->ad_id; ?>">
                         <a onclick="state(<?php echo $selectArrayItem->ad_id; ?>,<?php echo $selectArrayItem->ad_state; ?>)">

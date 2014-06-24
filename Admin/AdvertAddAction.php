@@ -10,9 +10,8 @@ if ($tenFile != "") {
     move_uploaded_file($file['tmp_name'], "Image/" . $tenFile);
 }
 $use2->name = $_REQUEST['name'];
-$use2->date = $_REQUEST['datepicker'];
-$use2->link = $_REQUEST['name'];
+$use2->link = $_REQUEST['link'];
 $use2->image = $tenFile;
 $use2->state = $_REQUEST['state'];
 $use2->Create();
-//header("Location: Advert.php");
+header("Location: Advert.php");

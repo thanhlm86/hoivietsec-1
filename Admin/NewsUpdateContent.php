@@ -60,11 +60,10 @@
                         <option value="0">--Catalog--</option>
                         <?php
                         $select = new Class_ClassTableCatalog();
-                        $catalogArray = $select->SelectNumberCatalog();
+                        $catalogArray = $select->SelectCatalogName();
                         foreach ($catalogArray as $catalogItem) {
                             ?>
-                            <option
-                                value="<?php echo $catalogItem->catalogid;?>" <?php if($arrayItem->catalogid==$catalogItem->catalogid){?>selected="selected" <?php }?>><?php echo $catalogItem->ca_name; ?></option>
+                            <option value="<?php echo $catalogItem->ca_id;?>"<?php if($arrayItem->catalogid==$catalogItem->ca_id){?>selected="selected" <?php }?>><?php echo $catalogItem->ca_name;?></option>
                         <?php } ?>
                     </select>
                 </div>

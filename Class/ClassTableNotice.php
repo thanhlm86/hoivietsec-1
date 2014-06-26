@@ -7,6 +7,9 @@ class Class_ClassTableNotice
     public $content;
     public $author;
     public $state;
+    public $focus;
+    public $description;
+    public $image;
     public $numberNotice;
     public $search;
     public $page;
@@ -14,13 +17,26 @@ class Class_ClassTableNotice
     public $display;
     public function Create()
     {
-        $sql = "insert into tbl_notice (no_title,no_author,no_date,no_content,no_state) values ('".$this->title."','".$this->author."','".$this->date."','".$this->content."','".$this->state."')";
+        $sql = "insert into tbl_notice (no_title,no_date,no_destion,no_content,no_image,no_author,no_state,no_focus) values ('" . $this->title . "','" . $this->date . "','" . $this->description . "','" . $this->content . "','" . $this->image . "','" . $this->author . "','" . $this->state . "','" . $this->focus . "')";
         $query = mysql_query($sql);
     }
     public function Update()
     {
-        $sql = "update tbl_notice set no_title = '".$this->title."',no_author = '".$this->author."', no_date = '".$this->date."', no_content = '".$this->content."', no_state = '".$this->state."' where no_id = ".$this->id;
+        if($this->image != ""){
+        $sql = "update tbl_notice set no_title = '".$this->title."',no_image = '".$this->image."', no_date = '" . $this->date . "', no_destion = '" . $this->description . "', no_content = '" . $this->content . "', no_author = '" . $this->author . "', no_state = '" . $this->state . "', no_focus = '" . $this->focus . "' where no_id = ".$this->id;
+        }else{
+            $sql = "update tbl_notice set no_title = '".$this->title."', no_date = '" . $this->date . "', no_destion = '" . $this->description . "', no_content = '" . $this->content . "', no_author = '" . $this->author . "', no_state = '" . $this->state . "', no_focus = '" . $this->focus . "' where no_id = ".$this->id;
+        }
         $query = mysql_query($sql);
+        $notice = array();
+        while ($row = mysql_fetch_object($query)) {
+            $notice[] = $row;
+        }
+        if (count($notice) > 0) {
+            return $notice;
+        } else {
+            return null;
+        }
     }
     public function UpdateState()
     {
@@ -45,7 +61,6 @@ class Class_ClassTableNotice
         } else {
             return null;
         }
-
     }
     public function SelectNumberNotice()
     {

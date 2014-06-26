@@ -9,8 +9,9 @@
     <div class="body">
         <?php include_once("Include/BodyLeft.php"); ?>
         <?php include_once("Include/BodyRight.php"); ?>
-    </div>
-    <div><?php include_once("Include/Bottom.php") ?></div>
+
+    <div><?php include_once("Include/Bottom.php");?></div>
+   </div>
 </div>
 </body>
 </html>

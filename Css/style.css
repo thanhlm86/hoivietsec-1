@@ -168,30 +168,50 @@ a:hover {
     font-weight: bold;
     padding: 0 10px;
     text-transform: uppercase;
+    float: left;
 }
 #feature-news a {
     color: #FFFFFF;
     font-weight: normal;
 }
-ul#easyticker {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    float: right;
-    width: 930px;
+.vticker{
+    width: 400px;
+    float: left;
+
+    }
+.vticker ul{
+    padding: 0;
 }
-ul#easyticker, .imageTicker {
-    height: 30px;
-    overflow: hidden;
-    position: relative;
+.vticker li{
+    list-style: none;
 }
-ul#easyticker li, .imageTicker li {
-    display: none;
-    left: 0;
-    position: absolute;
-    top: 0;
+.vticker ul li a{
+    color: #ffffff;
+    text-decoration: none;
 }
-ul#easyticker li {
-    padding: 0 10px;
+.vticker ul li a:hover{
+    text-decoration: underline;
 }
+/*ul#easyticker {*/
+    /*background: none repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+    /*float: right;*/
+    /*padding: 0;*/
+    /*width: 930px*/
+/*}*/
+/*ul#easyticker, .imageTicker {*/
+    /*height: 30px;*/
+    /*overflow: hidden;*/
+    /*position: relative;*/
+/*}*/
+/*ul#easyticker li, .imageTicker li {*/
+    /*display: none;*/
+    /*left: 0;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+/*}*/
+/*ul#easyticker li {*/
+    /*padding: 0 10px;*/
+/*}*/
 /*Style body page*/
 .body_left{
     background: none repeat scroll 0 0 #FFFFFF;

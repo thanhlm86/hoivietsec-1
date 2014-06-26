@@ -31,8 +31,16 @@
                         <label>Author: </label>
                         <input type="text" placeholder="Author..." name="author" id="author" class="form-control" value="<?php echo $arrayItem->no_author; ?>">
                     </div>
-                    <div class="form-group width"><label>Date: </label><input class="form-control" type="text" name="datepicker"
+                    <div class="form-group width"><label>Date Posted: </label><input class="form-control" type="text" name="datepicker"
                                                                               id="datepicker" placeholder="yy/mm/dd" value="<?php echo $arrayItem->no_date;?>"/></div>
+                    <div><label>Description: </label>
+
+                        <div class="editor">
+                            <textarea class="ckeditor" name="description" id="description">
+                                <?php echo $arrayItem->no_destion;?>
+                            </textarea>
+                        </div>
+                    </div>
                     <div><label>Content: </label>
                         <div class="editor">
                             <textarea class="ckeditor" name="content" id="content">
@@ -42,11 +50,11 @@
                     </div>
                     <div class="form-group width">
                         <label>Status: </label>
-                        <select class="form-control" name="state">
-                            <option value="0">--Status--</option>
-                            <option value="0" <?php if($arrayItem->no_state==0){?>selected="selected" <?php }?>>Không hiệu lực</option>
-                            <option value="1" <?php if($arrayItem->no_state==1){?>selected="selected" <?php }?>>Hiệu lực</option>
-                        </select>
+                        <input style="margin-top: -3px" type="checkbox" name="state[]" <?php if($arrayItem->no_state==1){?>checked="checked"<?php }?> value="1"/>
+                        <input style="margin-top: -3px" type="hidden" name="state[]" value="0" />
+                        <label style="margin-left: 20px">Focus: </label>
+                        <input style="margin-top: -3px" type="checkbox" name="focus[]" <?php if($arrayItem->no_focus==1){?>checked="checked"<?php }?> value="1"/>
+                        <input style="margin-top: -3px" type="hidden" name="focus[]"  value="0"/>
                     </div>
                     <div>
                         <input type="submit" name="sub" id="sub" value="Save"/>

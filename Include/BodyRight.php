@@ -8,14 +8,17 @@
     </div>
     <div id="video_2">
         <div align="center" style="z-index:0" id="container1">
-            <embed width="260" height="220" allowfullscreen="true"
-                   flashvars="file=/files/uploads/videos/QUOCCA_SEC_x264.mp4&amp;image=/files/uploads/videos/02.11.12-s1.jpg&amp;backcolor=0x000000&amp;frontcolor=0xCCCCCC&amp;lightcolor=0x557722&amp;shuffle=false&amp;autostart=false&amp;repeat=list&amp;plugins=embed-1&amp;embed.code="
-                   quality="high" bgcolor="#FFFFFF" name="ply" id="ply" style="undefined" src="/player.swf"
-                   type="application/x-shockwave-flash">
+<!--            <embed width="260" height="220" allowfullscreen="true"-->
+<!--                   flashvars="file=/files/uploads/videos/QUOCCA_SEC_x264.mp4&amp;image=/files/uploads/videos/02.11.12-s1.jpg&amp;backcolor=0x000000&amp;frontcolor=0xCCCCCC&amp;lightcolor=0x557722&amp;shuffle=false&amp;autostart=false&amp;repeat=list&amp;plugins=embed-1&amp;embed.code="-->
+<!--                   quality="high" bgcolor="#FFFFFF" name="ply" id="ply" style="undefined" src="/player.swf"-->
+<!--                   type="application/x-shockwave-flash">-->
+            <div>
+                <iframe width="260" height="220" src="//www.youtube.com/embed/Fx3wFI-usmU" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
         <p style="margin:8px;"><b>Quốc ca CH Séc</b></p>
 
-        <div style="margin-left:8px; margin-bottom:5px;" class="video_others_content">
+        <div style="margin-left:8px; margin-bottom:5px;padding: 0;" class="video_others_content">
             <ul>
                 <li><a onclick="video_2(13); return false;" href="#" id="video_2">
                         Ten kdo ma te rad Lucie Vondrackova</a>
@@ -24,13 +27,13 @@
         </div>
     </div>
     <div id="links">
-        <select style="width:220px;margin:10px;margin-left:30px">
+        <select onchange="window.location=this.value" style="width:220px;margin:10px;margin-left:30px">
             <option value="">---Liên kết website---</option>
             <?php $useLink = new Class_ClassTableLink();
             $link = $useLink->SelectNumberLink();
             foreach ($link as $linkItem) {
                 ?>
-                <option><a href="<?php echo $linkItem->li_link; ?>"><?php echo $linkItem->li_name; ?></a></option>
+                <option value="<?php echo $linkItem->li_link; ?>"><?php echo $linkItem->li_name; ?></option>
             <?php } ?>
         </select>
 
@@ -57,7 +60,7 @@
     <div id="advertising">
         <?php
             $useAdvert = new Class_ClassTableAdvert();
-            $useAdvert->numberAdvert = 10;
+            $useAdvert->numberAdvert = 20;
             $advert = $useAdvert->SelectNumberAdvert();
         foreach ($advert as $advertItem) {
         ?>

@@ -27,7 +27,7 @@
         <ul id="ul-lastestnews">
             <?php
             $use2->numberNews = 6;
-            $array = $use2->SelectNumberNews();
+            $array = $use2->SelectNewsSpecial();
             foreach ($array as $arrayItem) {
                 ?>
                 <li>
@@ -51,7 +51,7 @@ foreach ($catalog as $catalogItem) {
     ?>
     <div class="vs_blocks">
         <div class="vs_title">
-            <a><span><?php echo $catalogItem->ca_name; ?></span></a>
+            <a href="NewsCatalogPage.php?ca_id=<?php echo $catalogItem->ca_id;?>"><span><?php echo $catalogItem->ca_name; ?></span></a>
         </div>
         <?php $use2->numberNews = 1;
         $use2->catalogId = $catalogItem->ca_id;

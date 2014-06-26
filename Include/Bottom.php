@@ -1,9 +1,9 @@
 <div id="bottom-menu">
     <ul>
-        <li><a href="#">Trang chủ</a></li>
+        <li><a href="index.php">Trang chủ</a></li>
         <li><a href="#">Giới thiệu</a></li>
         <li><a href="#">Hội viên</a></li>
-        <li><a href="#">Tin tức</a></li>
+        <li><a href="NewsPage.php">Tin tức</a></li>
         <li><a href="#">Diễn đàn</a></li>
         <li><a href="#">Hỏi đáp</a></li>
         <li><a href="#">Liên hệ</a></li>

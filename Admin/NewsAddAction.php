@@ -14,7 +14,6 @@ $use2->author = $_REQUEST['author'];
 $use2->date = $_REQUEST['datepicker'];
 $use2->description = $_REQUEST['description'];
 $use2->content = $_REQUEST['content'];
-$use2->catalogId = $_REQUEST['catalogID'];
 $array = $_REQUEST['state'];
 $dem = count($array);
 if($dem == 1){
@@ -28,6 +27,13 @@ if($dem2 == 1){
     $use2->focus = 0;
 }else{
     $use2->focus =1;
+}
+$array3 = $_REQUEST['special'];
+$dem3 = count($array3);
+if($dem3 == 1){
+    $use2->special = 0;
+}else{
+    $use2->special =1;
 }
 $use2->image = $tenFile;
 $use2->Create();

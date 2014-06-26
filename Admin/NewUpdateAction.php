@@ -37,5 +37,12 @@ if($dem2 == 1){
 }else{
     $use2->focus = 1;
 }
+$array3 = $_REQUEST['special'];
+$dem3 = count($array3);
+if($dem3 == 1){
+    $use2->special = 0;
+}else{
+    $use2->special =1;
+}
 $use2->Update();
 header("Location: News.php");

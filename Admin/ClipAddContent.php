@@ -23,8 +23,8 @@
                     <input type="text" placeholder="Name..." id="name" name="name" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>Url: </label>
-                    <input type="text" placeholder="Url..." id="url" name="url" class="form-control">
+                    <label>Link Embed: </label>
+                    <input type="text" placeholder="Link Embed..." id="url" name="url" class="form-control">
                 </div>
                 <div class="form-group width">
                     <label>Status: </label>

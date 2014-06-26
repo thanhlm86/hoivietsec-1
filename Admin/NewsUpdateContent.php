@@ -31,7 +31,7 @@
                     <label>Author: </label>
                     <input type="text" placeholder="Author..." name="author" id="author" class="form-control" value="<?php echo $arrayItem->ne_author; ?>">
                 </div>
-                <div class="form-group width"><label>Date: </label><input class="form-control" type="text" name="datepicker"
+                <div class="form-group width"><label>Date Posted: </label><input class="form-control" type="text" name="datepicker"
                                                                           id="datepicker" placeholder="yy/mm/dd" value="<?php echo $arrayItem->ne_date;?>"/></div>
                 <div><label>Description: </label>
 
@@ -74,6 +74,9 @@
                     <label style="margin-left: 20px">Focus: </label>
                     <input style="margin-top: -3px" type="checkbox" name="focus[]" <?php if($arrayItem->ne_focus==1){?>checked="checked"<?php }?> value="1"/>
                     <input style="margin-top: -3px" type="hidden" name="focus[]"  value="0"/>
+                    <label style="margin-left: 20px">Special: </label>
+                    <input style="margin-top: -3px" type="checkbox" name="special[]" <?php if($arrayItem->ne_special==1){?>checked="checked"<?php }?> value="1"/>
+                    <input style="margin-top: -3px" type="hidden" name="special[]"  value="0"/>
                 </div>
                 <div>
                     <button type="submit">Save</button>

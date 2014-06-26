@@ -30,8 +30,8 @@
                     <input type="text" placeholder="Name..." id="name" name="name" class="form-control" value="<?php echo $arrayItem->cl_name; ?>">
                 </div>
                 <div class="form-group">
-                    <label>Url: </label>
-                    <input type="text" placeholder="Url..." id="url" name="url" class="form-control" value="<?php echo $arrayItem->cl_url; ?>">
+                    <label>Link Embed: </label>
+                    <input type="text" placeholder="Link Embed..." id="url" name="url" class="form-control" value="<?php echo $arrayItem->cl_url; ?>">
                 </div>
                 <div class="form-group width">
                     <label>Status: </label>

@@ -64,6 +64,9 @@
                    <label style="margin-left: 20px">Focus: </label>
                    <input style="margin-top: -3px" type="checkbox" name="focus[]" value="1"/>
                    <input style="margin-top: -3px" type="hidden" name="focus[]"  value="0"/>
+                   <label style="margin-left: 20px">Special: </label>
+                   <input style="margin-top: -3px" type="checkbox" name="special[]" value="1"/>
+                   <input style="margin-top: -3px" type="hidden" name="special[]"  value="0"/>
                </div>
                <div>
                    <button type="submit">Save</button>
